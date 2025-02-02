@@ -693,15 +693,25 @@ function calculateBrandSpending(allData, brandLabels) {
   // Khởi tạo mảng tổng spend cho từng brand
   const brandTotals = brandLabels.map(() => 0);
 
+  // Định nghĩa mapping giữa brand và optimization_goal
+  const goalMapping = {
+    "Lead Form": ["LEAD_GENERATION", "QUALITY_LEAD"],
+    Awareness: ["REACH"],
+    Engagement: ["POST_ENGAGEMENT", "THRUPLAY"],
+    Message: ["REPLIES"],
+    Traffic: ["OFFSITE_CONVERSIONS", "LINK_CLICKS", "PROFILE_VISIT"],
+    Likepage: ["PAGE_LIKES"],
+  };
+
   // Lặp qua tất cả các adset
   allData.forEach((adset) => {
-    const campaignName = adset.campaign_name?.toLowerCase() || ""; // Tên campaign từ adset
+    const campaignGoal = adset.optimization_goal;
     const spend = parseFloat(adset.spend || 0); // Chi tiêu của adset
 
-    // Gán tổng spend vào brand tương ứng
+    // Duyệt qua brandLabels để xác định nơi cần cộng spend
     brandLabels.forEach((brand, index) => {
-      if (campaignName.includes(brand.toLowerCase())) {
-        brandTotals[index] += spend;
+      if (goalMapping[brand]?.includes(campaignGoal)) {
+        brandTotals[index] += spend; // Cộng vào tổng chi tiêu của brand
       }
     });
   });
