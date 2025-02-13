@@ -663,10 +663,7 @@ function updateTotals(rows, selectedCount = 0) {
     total_cpm_viewPerformance: formatCurrency(
       ((metrics.spend * 1000) / metrics.impressions).toFixed(0)
     ),
-    total_prr_viewPerformance: `${(
-      (metrics.result * 100) /
-      metrics.reach
-    ).toFixed(2)}%`,
+    total_prr_viewPerformance: `${(metrics.reach / metrics.result).toFixed(0)}`,
   };
 
   Object.entries(metricMap).forEach(([id, value]) => {
