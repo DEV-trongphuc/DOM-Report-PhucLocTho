@@ -339,7 +339,7 @@ function processData(data, performance) {
   // Tạo các nhóm dữ liệu cho từng mục tiêu
   const metrics = {
     awareness: { totalSpend: 0, totalReach: 0 },
-    engagement: { totalSpend: 0, totalReaction: 0 },
+    engagement: { totalSpend: 0, totalEngagement: 0 },
     message: { totalSpend: 0, totalMessageCount: 0 },
     likepage: { totalSpend: 0, totalLikeCount: 0 },
     traffic: { totalSpend: 0, totalLinkClick: 0 },
@@ -392,7 +392,7 @@ function processData(data, performance) {
 
           case "Engagement":
             metrics.engagement.totalSpend += itemSpend;
-            metrics.engagement.totalReaction += reactionCount;
+            metrics.engagement.totalEngagement += engagementCount;
             break;
 
           case "Message":
@@ -415,7 +415,7 @@ function processData(data, performance) {
       // Xác định kết quả chính dựa trên mục tiêu
       const resultType =
         {
-          Engagement: reactionCount,
+          Engagement: engagementCount,
           Awareness: itemReach,
           Traffic: linkClickCount,
           Message: messageStartCount,
