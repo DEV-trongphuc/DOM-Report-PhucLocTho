@@ -1083,24 +1083,7 @@ input[type="checkbox"]:checked::before {
 .dom_detail_table tbody td:nth-child(4) {
   text-align: right;
 }
-.dom_detail_table tbody td:nth-child(10) {
-  /* margin-left: 2rem; */
-  padding-left: 5rem;
-  padding-right: 2rem;
-  min-width: 18rem;
-  position: relative;
-}
-.dom_detail_table tbody td:nth-child(10)::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 20%;
-  transform: translate(-50%, -50%);
-  width: 10px;
-  height: 10px;
-  background-color: var(--mainClr);
-  border-radius: 9px;
-}
+
 .dom_detail_table .dom_detail_tbody td:nth-child(4) {
   text-align: center;
   cursor: pointer;
@@ -1601,6 +1584,7 @@ input[type="checkbox"]:checked::before {
   font-size: 2rem;
   cursor: pointer;
 }
+
 .dom_role_container.active {
   opacity: 1;
   pointer-events: all;
@@ -1816,6 +1800,24 @@ input[type="checkbox"]:checked::before {
 }
 .dom_detail_table .dom_detail_tbody_oodo td:nth-child(3) {
   min-width: unset !important;
+}
+.dom_detail_table tbody td:nth-child(10) {
+  /* margin-left: 2rem; */
+  padding-left: 5rem;
+  padding-right: 2rem;
+  min-width: 22rem;
+  position: relative;
+}
+.dom_detail_table tbody td:nth-child(10)::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 15%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  background-color: var(--mainClr);
+  border-radius: 9px;
 }
 @media (max-width: 768px) {
   .logo_oodo {
